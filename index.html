@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yo-ja</title>
+    <!-- ref til stylesheet -->
+    <link rel="stylesheet" href="yoja.style.css" />
+    <!-- Her har vi hentet font fra google fonts - Arsenal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Genos:ital,wght@0,100..900;1,100..900&family=Sekuya&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Logo som også fungerer som home knap-->
+    <header>
+      <div class="logoContainer">
+        <a href="/sem2-flow5/index.html"
+          ><img src="img/Logo.png" alt="yo-jaLogo"
+        /></a>
+      </div>
+    </header>
+
+    <!-- Hovedoverskrift-->
+    <h1>Hej Sara!</h1>
+
+    <h2>Hvordan har du det i dag?</h2>
+
+    <!-- Smiley knapper, hvor man vælger alt efter ens humør-->
+    <div class="smileyContainer">
+      <img src="img/Smiley_Meget_ked.png" data-mood="megetKed" />
+      <img src="img/Smiley_ked.png" data-mood="lidtKed" />
+      <img src="img/Smiley_midt.png" data-mood="midt" />
+      <img src="img/Smiley_lidt_glad.png" data-mood="lidtGlad" />
+      <img src="img/Smiley_meget_glad.png" data-mood="megetGlad" />
+    </div>
+
+    <!-- Her kommer knapperne -->
+    <div class="category-container" id="categoryContainer"></div>
+
+    <h2>Udforsk vores yoga univers!</h2>
+
+    <!-- Vores sektion med de læringsmaterialer vi har i form af videoer, podcast og quiz -->
+    <div class="categoryContainerTwo">
+      <div class="categoryCard">
+        <a href="oevelser.html">
+          <!-- Yoga videoer -->
+          <img
+            src="img/videoThumbnail.jpeg"
+            alt="picture of yoga stretch pose"
+          />
+        </a>
+      </div>
+
+      <div class="categoryCard">
+        <a href="podcasts.html">
+          <!-- Podcasts -->
+          <img
+            src="img/podcastV2baggrund.png"
+            alt="picture of yoga strength pose"
+          />
+        </a>
+      </div>
+
+      <div class="categoryCard">
+        <a href="quiz.html">
+          <!-- Quiz -->
+          <img src="img/quizLogo.png" alt="picture of yoga destress pose" />
+        </a>
+      </div>
+
+      <div class="moodTestContainer">
+        <a href="moodtest.html">
+          <!-- Humør test -->
+          <section id="humorBoks">
+            <h2>Tag humør test og dyrk yoga efter dit mindset</h2>
+          </section>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer/menu -->
+    <footer>
+      <nav>
+        <div class="menuContainer">
+          <a href="/sem2-flow5/index.html">
+            <img src="img/aktiv_home.png" alt="homeIcon"
+          /></a>
+          <!-- Hjem knap -->
+          <a href="oevelser.html">
+            <img src="img/video-knap.png" alt="oevelserIcon"
+          /></a>
+          <!-- Video knap -->
+          <a href="om-yoga.html">
+            <img src="img/om.os.knap.png" alt="omYogaIcon"
+          /></a>
+          <!-- Om Om knap -->
+          <a href="profil.html">
+            <img src="img/profil-knap.png" alt="profilIcon"
+          /></a>
+          <!--Profil knap-->
+        </div>
+      </nav>
+    </footer>
+  </body>
+
+  <!-- Reference til Javascript filen -->
+  <script src="yoja.java.js"></script>
+</html>

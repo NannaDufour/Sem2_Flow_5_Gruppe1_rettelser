@@ -1,0 +1,896 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Gør at når man klikker på et link med section id (altså vores knapper på forsiden), så scroller den langsomt ned til den section */
+}
+
+/*LINKS */
+/* Gør at alle links beholder farve uanset om man hover eller har besøgt linket før + får Arsenal font  + bestemt skriftstørrelse*/
+a,
+a:visited,
+a:hover,
+a:active {
+  color: #5b102d;
+  font-family: "arsenal", system-ui;
+  font-size: 18px;
+}
+
+/* BAGGRUND */
+body {
+  min-height: 100vh; /* Gør at gradient fylder hele skærmen */
+  background: linear-gradient(
+    to bottom,
+    #b7a1ba,
+    #e7abad,
+    #f4d5c4,
+    #b495af,
+    #d68f99,
+    #dfb1a3
+  );
+}
+
+/* TYPOGRAFI */
+
+h1,
+h2 {
+  text-align: center;
+  font-family: "Arsenal", system-ui;
+  font-weight: 400;
+  font-style: regular;
+  margin: 30px 30px 20px 30px;
+  color: #5b102d;
+}
+
+h3 {
+  font-family: "arsenal", system-ui;
+}
+
+h4 {
+  font-family: "arsenal";
+  color: #5b102d;
+}
+
+p {
+  font-family: "arsenal", system-ui;
+  font-weight: 400;
+  color: #5b102d;
+  text-align: center;
+  font-size: 18px;
+}
+
+li {
+  font-family: "arsenal";
+  color: #5b102d;
+  margin: 0 30px;
+}
+
+/* Så vores logo er centreret */
+.logoContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/* Så logo ikke fylder mere en 150px */
+.logoContainer img {
+  max-width: 100%;
+  height: auto;
+  max-width: 150px;
+}
+
+/* Så links ikke har diverse automatiske settings, så som blå font, underlining osv */
+a {
+  text-decoration: none;
+}
+
+header {
+  margin: 30px;
+}
+
+/* -------------------------------------------------------FORSIDE----------------------------------------------------------------*/
+
+/* Smiley knapper */
+.smileyContainer {
+  display: flex;
+  margin: 30px; /* Den faste margin som er gennemgående på hele app */
+  gap: 15px; /* Så der er mellemrum mellem smileys */
+  justify-content: center; /* Så de er centreret */
+}
+
+.smileyContainer img {
+  width: 50px; /* Hver enkelte smilets bredde, så der er plads til dem alle */
+}
+
+/* Container til de forskellige læringskategorier når man trykker på smileys */
+.category-container {
+  display: flex;
+  flex-direction: column; /* så de står under hinanden */
+  margin: 30px;
+  gap: 15px; /* mellemrum i mellem */
+  align-items: center; /* Centreret */
+}
+
+/* knapper til diverse kategorier indenfor video */
+.flexBut {
+  width: 150px; /* så de får den samme bredde */
+  text-align: center;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  opacity: 0.8;
+  color: #5b102d;
+  text-decoration: none;
+  border-radius: 20px;
+  font-family: "arsenal";
+  flex: 1;
+  box-shadow: #5b102d 0px 2px 2px; /* Giver en let skygge for at få knapperne til at poppe lidt mere frem */
+}
+
+/* Overblik over diverse indhold i app */
+.categoryContainerTwo {
+  margin: 30px;
+  gap: 30px;
+}
+
+/* Video, podcast og quiz */
+.categoryCard {
+  overflow: hidden; /* Skjuler indhold der går uden for kortets kanter */
+  height: 250px; /* Giver en fast højde */
+  border-radius: 20px; /* Giver runde hjørner */
+  margin-bottom: 30px; /* spacing på mobil */
+}
+
+.categoryCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Sørger for at billedet dækker hele området uden at blive strukket (beskærer i stedet) */
+  display: block; /* Fjerner ekstra mellemrum under billedet  */
+}
+
+.moodTestContainer {
+  border-radius: 20px; /* Giver runde hjørner */
+  background: #ffffff;
+  padding: 10px;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+  height: 200px; /* Giver fast højde */
+  margin-bottom: 100px; /* Giver ekstra luft under, så det ikke skaber problemer med navigationsmenu, da man ellers ikke ville kun se det hele af Test containeren */
+}
+
+/* Navigationsmenu */
+
+.menuContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; /* Så der er lige meget luft mellem ikoner */
+  background-color: #ffffff;
+  opacity: 0.8;
+  position: fixed; /* Så menuen hele tiden er der, den "sidder fest" */
+  bottom: 0; /* Så den låser sig til bunden */
+  width: 100%;
+  height: 60px; /* fast højde */
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.menuContainer img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain; /* Billedet beholder hele sit indhold, intet bliver beskåret */
+}
+
+/* ---------------------------------------------------------------------- HUMØR TEST -------------------------------------------------------------------------------*/
+
+.spørgsmål {
+  display: none; /* Skjuler alle spørgsmål som standard */
+  text-align: center; /* Centrerer tekst og indhold i spørgsmålsboksen */
+  padding: 10px;
+  margin: 30px;
+}
+
+.spørgsmål h2 {
+  margin-top: 10px; /* Giver luft over overskriften */
+}
+
+.spørgsmål.aktiv {
+  display: block; /* Viser kun det aktive spørgsmål*/
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.radioBox,
+label {
+  width: 250px; /* Fast bredde på svarbokse */
+  padding: 15px 20px; /* Gør klikområdet større */
+  border-radius: 15px; /* Giver runde hjørner */
+  background-color: #ffffff;
+  opacity: 0.8;
+  font-family: "arsenal";
+  color: #5b102d;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.radioBox input[type="radio"] {
+  transform: scale(1.3); /* Gør radio-knappen større og mere synlig */
+}
+
+.næste {
+  margin-top: 25px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #5b102d;
+  color: white;
+  font-size: 16px;
+  font-family: "arsenal";
+}
+
+.spørgsmål video {
+  width: 100%;
+  height: auto;
+  border-radius: 20px; /* Afrunder billedets hjørner */
+}
+
+/* ----------------------------------------------------------------------  Podcast  --------------------------------------------------------------------------------------*/
+.podcastPlayingContainer {
+  display: none;
+  justify-self: center;
+  margin: 30px;
+}
+
+.podcastPlayingContainer video {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+.podListe {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  background-color: #ffffff;
+  opacity: 0.8;
+
+  padding: 10px 20px;
+  border-radius: 20px;
+
+  margin-bottom: 15px;
+}
+
+.podListe h3 {
+  flex: 1;
+}
+
+.podListe img {
+  width: 50px; /* Gør billederne til cirkler */
+  height: 50px;
+}
+
+/* -----------------------------------------------------------------------  QUIZ --------------------------------------------------------------------------------------- */
+
+/* Spørgsmål */
+
+.quizBox {
+  display: none; /* Skjuler alle quiz-spørgsmål som standard, så kun det aktive vises via JavaScript */
+  justify-items: center;
+}
+
+.aktivQuiz {
+  display: block; /* Viser det aktuelle quiz-spørgsmål, som styres via JavaScript */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  display: block; /* Gør hver svarmulighed til en blok, så de står under hinanden */
+  margin: 15px;
+  font-size: 20px;
+}
+
+/* Knap til næste spørgsmål */
+
+.quizKnap {
+  display: flex;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none; /* Fjerner standard kant */
+  border-radius: 10px; /* Giver runde hjørner */
+  background-color: #5b102d;
+  color: white;
+  font-size: 16px;
+  justify-content: center;
+  font-family: "arsenal";
+}
+
+/* feedback når man har svaret */
+
+.quizFeedback {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold; /* Fremhæver korrekt/forkert besked */
+  font-family: "arsenal", system-ui;
+  color: #5b102d;
+}
+
+/* --------------------------------------------------------------------------  OM OS ----------------------------------------------------------------------- */
+
+.headlineContainer {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin: 0 30px;
+}
+
+.headlineContainer img {
+  width: 100%;
+  height: auto;
+}
+
+.infoOneText {
+  margin-bottom: 25px; /* Giver mere luft under */
+}
+
+/* introducerende afsnit */
+
+.infoOneContainer {
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 30px;
+}
+
+.infoOneImageContainer img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px; /* Giver runde hjørner */
+  object-fit: cover; /* Beskærer billede så det passer */
+}
+
+.infoOneContainerTwo {
+  margin: 30px;
+}
+
+.infoOneContainerTwo p {
+  margin-top: 20px;
+}
+
+/* Om app afsnit */
+
+.infoTwoContainer,
+.infoThreeContainer,
+.infoFourContainer {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.infoTwoContainer img {
+  display: flex;
+  justify-self: center;
+  width: 200px; /* fast bredde */
+}
+
+.infoThreeContainer img,
+.infoFourContainer img {
+  width: 100%;
+  height: auto;
+}
+
+.infoTwoImageContainer {
+  margin-top: 20px;
+}
+
+.infoFourContainer {
+  margin-bottom: 100px; /* Mere luft under sidste element, så den ikke bliver skjult af navigation */
+}
+
+/* ---------------------------------------------------------------------------- VIDEOER ---------------------------------------------------------------- */
+
+/* Mockup container */
+.switchContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 30px;
+}
+
+.knapFlex {
+  display: grid; /* Bruger CSS Grid til at placere knapper ved siden af hinanden */
+  grid-template-columns: 1fr 1fr; /* Deler containeren i to lige store kolonner */
+
+  width: 250px; /* Fast bredde på knap-containeren */
+
+  background-color: white;
+  border-radius: 20px; /* Giver rundede hjørner */
+
+  overflow: hidden; /* Sikrer at indhold ikke går udenfor containeren */
+}
+
+/* Mockup knapper - switch */
+.programmerKnap,
+.oevelserKnap,
+.profilKnap,
+.settingsKnap {
+  text-align: center;
+  padding: 15px;
+  border-radius: 15px; /* giver runde hjørner */
+  cursor: pointer;
+  width: 100%;
+}
+
+.programmerKnap,
+.settingsKnap {
+  color: #5b102d;
+}
+
+/* aktiv side - den der bliver vist */
+.active {
+  background-color: #5b102d;
+  color: white;
+}
+
+/* Mockup af at vide man kan swipe - container */
+.dotsContainerOevelser,
+.dotsContainerOevelserFinal,
+.dotsContainerProfil {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px;
+}
+
+.dotsContainerOevelserFinal {
+  margin-bottom: 100px; /* For at give luft under, så det ikke bliver skjult af navigationsmenu */
+}
+
+.categoryCaroussel {
+  margin: 0 30px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas: "slide";
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+}
+
+.categoryCaroussel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide1,
+.slide2 {
+  grid-area: slide; /* Placere begge slides i det samme område, så de kan skifte mellem hinanden */
+}
+
+/* knapper til skifte mellem slides */
+.prev1,
+.next1,
+.prev2,
+.next2 {
+  position: absolute; /* gør det muligt at placere knapperne ift carousselsens kanter */
+  top: 50%; /* Placere knapperne vertikalt i midten */
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.73);
+  margin-top: -15px; /* Justere knapperne så de er præcis i midten */
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer; /* Gør at det bliver tydeligt at man kan klikke */
+}
+
+.prev1,
+.prev2 {
+  left: 20px;
+}
+
+.next1,
+.next2 {
+  right: 20px;
+}
+
+/*------------------------------------------------------------------------- AFSPIL VIDEO-------------------------------------------- */
+/* Info om video */
+.infoBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.levelBox,
+.durationBox,
+.difficultyBox {
+  border-radius: 20px;
+  background: #ffffff;
+  color: #5b102d;
+  opacity: 0.8;
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+}
+
+.videoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #ffffff; /* fordi video ikke fylder hele containeren, så er der en baggrundsfarve */
+  opacity: 0.8;
+}
+
+.videoContainer video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* sørger for at hele videoen er synlig uden at blive beskåret */
+  display: block; /* Fjerner ekstra mellemrum under videoen */
+}
+
+.lydContainer {
+  margin: 30px 30px 5px 30px;
+}
+
+.lydContainer img {
+  width: 100%;
+}
+
+.audioText {
+  font-family: "arsenal";
+  font-style: regular;
+  color: #5b102d;
+  text-align: center;
+  margin: 0 30px 30px 30px;
+}
+
+.fokusHeadline {
+  margin: 10px 30px;
+}
+
+.beskrivContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 0 30px;
+}
+
+.beskrivOrd {
+  background-color: #ffffff;
+  opacity: 0.8;
+  border-radius: 20px;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+  font-family: "arsenal";
+  color: #5b102d;
+  margin-bottom: 100px; /* giver luft under, så det ikke bliver skjult af navigationsmenu */
+}
+
+/* ------------------------------------------------------------------  PROFIL ---------------------------------------------- */
+
+/* Container til profilbillede og tekst */
+.profilContainer {
+  display: flex;
+  align-items: center;
+  margin: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  opacity: 0.8;
+  border-radius: 20px; /* Runde hjørner */
+  gap: 20px;
+}
+
+.profilImageContainer img {
+  width: 100px; /* fast bredde */
+  height: 100px; /* fast højde */
+  border-radius: 50%; /* Gør billeder til en cirkel */
+  object-fit: cover; /* Beskærer billeder så det passer til containeren */
+}
+
+.profilTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  flex: 1;
+  font-family: "arsenal", system-ui;
+  color: #5b102d;
+}
+
+/* Container med data og cirkel */
+.dataContainer {
+  display: flex; /* Bruger flexbox til at arrangere data og cirkel under hinanden */
+  flex-direction: column; /* Gør at de to billeder står under hinanden */
+  justify-content: center;
+  margin: 30px;
+  gap: 50px;
+}
+
+.dataContainer img,
+.cirkelContainer img {
+  width: 100%;
+  height: auto;
+}
+
+.cirkelContainer {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.gemteVidoerContainer {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  height: 200px;
+}
+
+.gemteVidoerContainer img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover; /* Beskærer billedet så det passer til containeren */
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+/* Den "aktive" dot som indikere den aktive video */
+.activeDot {
+  background-color: #5b102d;
+}
+
+/* Container til listen af venner under profil og liste af podcasts */
+.vennerListeContainer,
+.podcastContainer {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 20px;
+  margin: 30px;
+  margin-bottom: 100px; /* Giver ekstra luft under, så det ikke bliver skjult af navigationsmenu */
+}
+
+.vennerListe {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  opacity: 0.8;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.vennerListe img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover; /* beskærer billeder så det passer til containeren */
+}
+
+.vennerListe h3 {
+  flex: 1; /* Gør at teksten fylder det resterende plads i containeren og skubber knappen til højre */
+  text-align: center;
+}
+
+.vennerListe button {
+  margin-left: auto; /* Gør at knappen er placeret i højre side af containeren */
+  padding: 10px;
+  border-radius: 20px;
+  border-color: #d68f99;
+}
+
+/*-----------------------------------------------------------------  RESPONSIVT DESIGN -------------------------------------------------- */
+/* ----------------------------------------------------------------  FORSIDE ------------------------------------------------------------ */
+@media screen and (min-width: 768px) {
+  .smileyContainer {
+    width: 400px; /* Større bredde på containeren, så der er mere plads til smileys nu hvor skærmen er større */
+    display: flex;
+    justify-self: center;
+  }
+
+  .smileyContainer img {
+    width: 60px;
+    height: 60px;
+  }
+  .categoryContainerTwo {
+    display: grid; /* Bruger CSS grid til at arrangere de fire kategorier i to kolonner og to rækker */
+    grid-template-columns: 1fr 1fr; /* to lige store kolonner */
+  }
+
+  .categoryCard {
+    margin-bottom: 0; /* Fjerne margin under kortene, da der nu er gap i grid som skaber mellemrum --> giver et ensartet look */
+  }
+
+  .categoryCard img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .moodTestContainer {
+    height: 230px; /* giver højde, så den passer med de tre andre kort */
+    display: flex;
+    justify-content: center;
+  }
+
+  /*---------------------------------------------------------------------- VIDEOER ------------------------------------------------- */
+  .categoryCaroussel {
+    width: 600px; /* Fast bredde på caroussel, så det ikke fylder hele skærmen */
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-self: center;
+  }
+
+  .categoryCaroussel img {
+    width: 100%;
+    height: auto;
+  }
+
+  /*-------------------------------------------------------------------- OM YOGA ------------------------------------------------- */
+
+  .infoOneContainer {
+    gap: 30px;
+    margin: 20px 60px;
+  }
+
+  /* Det første afsnit med billede og tekst side om side */
+  .infoOneContainerTwo {
+    display: flex;
+    flex-direction: row; /* Gør at billede og tekst står ved siden af hinanden */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .infoOneImageContainer {
+    flex: 1; /* Gør at billedet fylder det samme som teksten, så de er lige store */
+  }
+
+  .infoOneImageContainer img {
+    width: 100%;
+    height: auto;
+  }
+
+  .infoOneText {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Gør at teksten fylder det samme som billedet, så de er lige store */
+  }
+
+  /* De tre afsnit der beskriver appen */
+
+  .infoTwoContainer,
+  .infoThreeContainer,
+  .infoFourContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .infoTwoImageContainer img,
+  .infoThreeImageContainer img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block; /* Fjerner ekstra mellemrum under billeder */
+  }
+
+  .infoFourContainer {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .infoFourImageContainer,
+  .infoFourContainer p {
+    flex: 1; /* Gør at både billede og tekst fylder det samme, så de er lige store */
+  }
+
+  /*-----------------------------------------------------------------------  PROFIL  -----------------------------------------------------*/
+  .profilContainer {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Grid som gør de fire sektioner på profil siden (data, og venneliste kan stå ved siden af hinanden) */
+  .tabletGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* to lige store kolonner, så alt står ved siden af hinanden og er alignet */
+    gap: 25px;
+    margin: 40px;
+    align-items: start; /* Justere alle sektioner så de starter ved samme højde, så det ser mere ensartet ud */
+  }
+
+  /* Fjerner gamle margins */
+  .dataContainer,
+  .cirkelContainer,
+  .vennerListeContainer {
+    margin: 0;
+  }
+
+  /* Gemte videoer */
+  .gemteVidoerContainer {
+    max-width: 700px;
+    margin: 30px auto;
+  }
+
+  /* Aktivitet billeder */
+  .dataContainer {
+    height: 350px;
+  }
+
+  .dataContainer img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Cirkel */
+  .cirkelContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Venner */
+  .vennerListeContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    gap: 15px;
+  }
+
+  /*------------------------------------------------------------------------  VIDEO ------------------------------------ */
+
+  .videoText {
+    margin: 20px 130px;
+  }
+  .videoContainer {
+    width: 500px; /* fast bredde på video containeren, så den ikke fylder hele skærmen, men større nu hvor det er tablet */
+    height: 300px;
+    display: flex;
+    justify-self: center;
+  }
+
+  .lydContainer {
+    width: 500px;
+    display: flex;
+    justify-self: center;
+  }
+
+  .fokusHeadline {
+    font-size: 24px; /* Tekst større */
+  }
+
+  /* -----------------------------------------------------------------------  PODCAST------------------------------------------ */
+  .podcastPlayingContainer {
+    width: 500px;
+    height: 300px;
+  }
+}

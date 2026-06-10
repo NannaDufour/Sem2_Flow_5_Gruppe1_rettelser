@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yo-ja</title>
+    <!-- ref til stylesheet -->
+    <link rel="stylesheet" href="yoja.style.css" />
+    <!-- Her har vi hentet font fra google fonts - Arsenal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Genos:ital,wght@0,100..900;1,100..900&family=Sekuya&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Vores header med Yo-JA logo, som fungerer som hjemmeknap også -->
+    <header>
+      <div class="logoContainer">
+        <a href="/sem2-flow5/index.html"
+          ><img src="img/Logo.png" alt="yo-jaLogo"
+        /></a>
+      </div>
+    </header>
+
+    <!-- SPØRGSMÅL 1 -->
+    <div class="quizBox aktivQuiz">
+      <h2>Hvad betyder ordet yoga?</h2>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz1" value="forkert" />
+        Balance
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz1" value="rigtigt" />
+        Forening
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz1" value="forkert" />
+        Meditation
+      </label>
+
+      <button class="quizKnap">Næste spørgsmål</button>
+
+      <!-- DOM Ændring, som afhænger af om man svarer rigtigt eller forkert -->
+
+      <p class="quizFeedback"></p>
+    </div>
+
+    <!-- SPØRGSMÅL 2 -->
+    <div class="quizBox">
+      <h2>Hvilken yogaform er mest rolig?</h2>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz2" value="rigtigt" />
+        Yin Yoga
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz2" value="forkert" />
+        Power Yoga
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz2" value="forkert" />
+        Hot Yoga
+      </label>
+
+      <button class="quizKnap">Næste spørgsmål</button>
+
+      <!-- DOM Ændring, som afhænger af om man svarer rigtigt eller forkert -->
+
+      <p class="quizFeedback"></p>
+    </div>
+
+    <!-- SPØRGSMÅL 3 -->
+    <div class="quizBox">
+      <h2>Hvad fokuserer yoga meget på?</h2>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz3" value="forkert" />
+        Konkurrence
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz3" value="forkert" />
+        Hurtighed
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz3" value="rigtigt" />
+        Vejrtrækning
+      </label>
+
+      <button class="quizKnap">Næste spørgsmål</button>
+
+      <!-- DOM Ændring, som afhænger af om man svarer rigtigt eller forkert -->
+
+      <p class="quizFeedback"></p>
+    </div>
+
+    <!-- SPØRGSMÅL 4 -->
+    <div class="quizBox">
+      <h2>Hvilken stilling bruges ofte til afslapning?</h2>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz4" value="forkert" />
+        Planken
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz4" value="rigtigt" />
+        Barnets stilling
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz4" value="forkert" />
+        Krigerstilling
+      </label>
+
+      <button class="quizKnap">Næste spørgsmål</button>
+
+      <!-- DOM Ændring, som afhænger af om man svarer rigtigt eller forkert -->
+
+      <p class="quizFeedback"></p>
+    </div>
+
+    <!-- SPØRGSMÅL 5 -->
+    <div class="quizBox">
+      <h2>Hvad kan yoga hjælpe med?</h2>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz5" value="forkert" />
+        Mere stress
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz5" value="rigtigt" />
+        Bedre balance
+      </label>
+
+      <label class="radioBox">
+        <input type="radio" name="quiz5" value="forkert" />
+        Dårlig søvn
+      </label>
+
+      <button class="quizKnap">Afslut quiz</button>
+
+      <!-- DOM Ændring, som afhænger af om man svarer rigtigt eller forkert -->
+
+      <p class="quizFeedback"></p>
+    </div>
+
+    <!-- Footer/menu -->
+    <footer>
+      <nav>
+        <div class="menuContainer">
+          <a href="/test/index.html">
+            <img src="img/home.knap.png" alt="homeIcon"
+          /></a>
+          <!-- Hjem knap -->
+          <a href="oevelser.html">
+            <img src="img/video-knap.png" alt="oevelserIcon"
+          /></a>
+          <!-- Video knap -->
+          <a href="om-yoga.html">
+            <img src="img/om.os.knap.png" alt="omYogaIcon"
+          /></a>
+          <!-- Om Om knap -->
+          <a href="profil.html">
+            <img src="img/profil-knap.png" alt="profilIcon"
+          /></a>
+          <!--Profil knap-->
+        </div>
+      </nav>
+    </footer>
+  </body>
+
+  <!-- Reference til Javascript filen -->
+  <script src="yoja.java.js"></script>
+</html>
